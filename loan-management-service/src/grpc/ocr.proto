@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ocr;
+
+// The OCR service definition.
+service OCRService {
+  // Sends an image file path to extract text from it.
+  rpc ExtractText (OCRRequest) returns (OCRResponse);
+}
+
+// The request message containing the file path.
+message OCRRequest {
+  bytes image = 1;
+}
+
+// The response message containing the extracted text array.
+message OCRResponse {
+  repeated string text = 1;
+}
